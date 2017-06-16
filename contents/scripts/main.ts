@@ -44,7 +44,6 @@ async function rpcCall(socket: WebSocket, request: any, timeout: number = 5000) 
                 return
             }
             if (response.error) {
-                console.log(response.error.data)
                 const data = response.error.data || {message: 'unknown'}
                 reject(new Error(`Response error: ${ data.message }`))
                 return
@@ -138,9 +137,7 @@ async function run(nodes: string[]) {
             return d
         })
 
-    const firstError = (d: BenchResult<any>[]) => {
-        return d.find((d) => { return d.error != null })
-    }
+    const lastError = (d: BenchResult<any>[]) => d[d.length-1].error
 
     while (running) {
         for (const node of nodes) {
@@ -185,11 +182,11 @@ async function run(nodes: string[]) {
 
             let resultSel = rowSel.selectAll('td.result').data((d) => d.result)
             resultSel.enter().append('td').classed('result', true)
-            resultSel.filter((d) => firstError(d) != null)
+            resultSel.filter((d) => lastError(d) != null)
                 .classed('error', true)
-                .attr('data-error', (d) => firstError(d).error.message)
+                .attr('data-error', (d) => lastError(d).message)
             resultSel.text((d) => {
-                if (firstError(d) != null) {
+                if (lastError(d) != null) {
                     return 'error'
                 }
                 return Math.round(d3.mean(d.map((d) => d.time))) + 'ms'
