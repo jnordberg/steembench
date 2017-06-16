@@ -208,13 +208,13 @@ async function run(nodes: string[]) {
 }
 
 export default async function main() {
-    const textarea = document.getElementById('nodes')
-    textarea.textContent = defaultNodes.join('\n')
+    const textarea = document.getElementById('nodes') as HTMLTextAreaElement
+    textarea.value = defaultNodes.join('\n')
 
     const button = document.getElementById('start') as HTMLButtonElement
 
     const start = () => {
-        const nodes = textarea.textContent.split('\n').filter((line) => line.trim().length > 0)
+        const nodes = textarea.value.split('\n').filter((line) => line.trim().length > 0)
         button.textContent = 'Stop'
         document.documentElement.classList.add('running')
         running = true
