@@ -1,0 +1,28 @@
+{
+  "locals": {
+    "release": "1"
+  },
+  "static": [
+    "scripts/**/*"
+  ],
+  "ignore": [".DS_Store"],
+  "browserify": {
+    "debug": true,
+    "watchify": false,
+    "extensions": [".ts"],
+    "plugins": ["tsify"],
+    "staticLibs": ["d3"],
+    "staticLibsBundle": true
+  },
+  "stylus": {
+    "include css": true,
+    "dependencies": ["nib"]
+  },
+  "plugins": [
+    "wintersmith-browserify",
+    "wintersmith-livereload",
+    "wintersmith-nunjucks",
+    "wintersmith-stylus",
+    "wintersmith-static"
+  ]
+}

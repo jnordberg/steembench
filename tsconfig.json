@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "es2015"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es3"
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "test.ts",
+    "contents/**/*.ts"
+  ]
+}

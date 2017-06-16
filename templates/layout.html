@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Steem node benchmark</title>
+  <meta name="viewport" content="width=900">
+  {{ browserifyLibs }}{{ livereloadScript -}}
+  <link rel="stylesheet" href="bench.css?v={{ release }}">
+  <script src="bench.js?v={{ release }}"></script>
+</head>
+<body>
+  <form>
+    <label for="nodes">Nodes to check:</label>
+    <textarea id="nodes"></textarea>
+    <button id="start">Start</button>
+  </form>
+  <table id="results"></table>
+  <footer>
+    by <a href="https://steemit.com/@almost-digital">@almost-digital</a>
+    – <a href="https://github.com/jnordberg/steembench">source code</a>
+  </footer>
+</body>
+</html>

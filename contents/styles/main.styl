@@ -1,0 +1,87 @@
+
+@import 'nib'
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700')
+
+accent-color = #78b2fd
+
+body, textarea, button
+  font-size: 14px
+  font-weight: 400
+  font-family: 'Inconsolata', monospace
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+body
+  display: flex
+  flex-direction: column
+
+form
+  display: flex
+  flex-direction: column
+  margin: 2em auto
+  *
+    transition: .3s ease-in-out all
+    padding: 0.618em
+    &:focus
+      outline: none
+  button, textarea
+    background: white
+    border: 1px solid accent-color
+  textarea
+    border-bottom: 0
+    width: 20em
+    height: 8em
+
+  .running &
+    textarea, label
+      height: 0
+      padding-top: 0
+      padding-bottom: 0
+      opacity: 0
+
+table
+  width: 100%
+  border-collapse: collapse
+  td, th
+    padding: 0.618em
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    text-align: left
+    border-bottom: 1px solid accent-color
+    &.error
+      color: #FF6F19
+    &:first-child
+      padding-left: 5%
+    &:last-child
+      padding-right: 5%
+  tr:nth-child(2n) td
+    border-bottom-color: desaturate(accent-color, 50%)
+  th.result
+    max-width: 5em
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+  th.time
+    max-width: 11em
+  th.head_block_number
+    max-width: 6em
+  th.connect
+    max-width: 5em
+  th.node
+    max-width: 15em
+
+a
+  color: accent-color
+
+body
+  min-height: 100vh
+  background: #eff5fd
+  justify-content: center
+
+footer
+  margin: 4em
+  text-align: center
