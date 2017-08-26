@@ -11,11 +11,11 @@ const benchCalls = [
 ]
 
 const defaultNodes = [
-    'wss://steemd.steemit.com',
-    'wss://node.steem.ws',
-    'wss://seed.bitcoiner.me',
     'wss://gtg.steem.house:8090',
-    'wss://this.piston.rocks',
+    'wss://rpc.steemliberator.com',
+    'wss://seed.bitcoiner.me',
+    'wss://steemd.privex.io',
+    'wss://steemd.steemit.com',
 ]
 
 async function openSocket(address: string, timeout: number = 5000) {
